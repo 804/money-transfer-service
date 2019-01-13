@@ -7,6 +7,10 @@ package org.eightofour.moneytransfer.app.exception;
  * @author Evgeny Zubenko
  */
 public class NoSuchMoneyException extends Exception {
+    public NoSuchMoneyException(String message) {
+        super(message);
+    }
+
     public NoSuchMoneyException(String message, Throwable cause) {
         super(message, cause);
     }

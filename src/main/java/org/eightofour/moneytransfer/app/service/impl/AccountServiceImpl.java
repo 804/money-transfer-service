@@ -71,12 +71,12 @@ public class AccountServiceImpl implements AccountService {
                 }
             );
             log.info(
-                "Topping up operation has been performed successfully: account '{}', amount '{}'",
+                "Recharging operation has been performed successfully: account '{}', amount '{}'",
                 account.getId(), amount
             );
         } catch (Exception exc) {
             log.error(
-                "Topping up operation has been failed: account - '{}', amount - '{}', cause: {}",
+                "Recharging operation has been failed: account - '{}', amount - '{}', cause: {}",
                 accountId, amount, exc.getMessage()
             );
             throw exc;

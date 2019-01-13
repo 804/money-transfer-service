@@ -14,7 +14,7 @@ import org.javamoney.moneta.Money;
  */
 @Slf4j
 public class AccountFactory implements SimpleFactory<Account> {
-    //
+    // entity for ID generation
     private final IdGenerator idGenerator;
 
     public AccountFactory(IdGenerator idGenerator) {
