@@ -7,7 +7,9 @@ package org.eightofour.moneytransfer.app.exception;
  * @author Evgeny Zubenko
  */
 public class AccountNotFoundException extends Exception {
+    private static final String MESSAGE_TEMPLATE = "Account with id '%s' isn't found";
+
     public AccountNotFoundException(String accountId) {
-        super("Account with id '" + accountId + "' isn't found");
+        super(String.format(MESSAGE_TEMPLATE, accountId));
     }
 }

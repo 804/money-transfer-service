@@ -2,6 +2,9 @@ package org.eightofour.moneytransfer.web.rest.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 /**
  * View class for error response
@@ -9,7 +12,10 @@ import lombok.AllArgsConstructor;
  *
  * @author Evgeny Zubenko
  */
+@Getter
+@EqualsAndHashCode
 @AllArgsConstructor
+@NoArgsConstructor
 public class ErrorResponse {
     /**
      * HTTP code.

@@ -12,6 +12,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  * Controller class for REST API endpoints, which
@@ -39,18 +40,22 @@ public class MoneyTransferController {
      * @param request - request object with
      *                  passed operation parameters
      *
+     * @return {@link Response} instance for current operation
+     *         (always code 200 without exceptions)
+     *
      * @throws AccountNotFoundException if target account
      *                                  from request wasn't found
      */
     @PUT
     @Path("/recharge")
-    public void rechargeAccount(RechargeRequest request)
+    public Response rechargeAccount(RechargeRequest request)
             throws AccountNotFoundException {
         validateAmount(request.getAmount(), RECHARGE_VALIDATION_ERROR_MESSAGE);
         accountService.rechargeAccount(
             request.getAccountToId(),
             request.getAmount()
         );
+        return Response.status(200).build();
     }
 
     /**
@@ -59,6 +64,9 @@ public class MoneyTransferController {
      * @param request - request object with
      *                  passed operation parameters
      *
+     * @return {@link Response} instance for current operation
+     *         (always code 200 without exceptions)
+     *
      * @throws AccountNotFoundException if source or target account
      *                                  from request wasn't found
      * @throws NoSuchMoneyException if source account hasn't enough
@@ -66,7 +74,7 @@ public class MoneyTransferController {
      */
     @PUT
     @Path("/transfer")
-    public void transfer(TransferRequest request)
+    public Response transfer(TransferRequest request)
             throws AccountNotFoundException, NoSuchMoneyException {
         validateAmount(request.getAmount(), TRANSFER_VALIDATION_ERROR_MESSAGE);
         accountService.transfer(
@@ -74,6 +82,7 @@ public class MoneyTransferController {
             request.getAccountToId(),
             request.getAmount()
         );
+        return Response.status(200).build();
     }
 
     private void validateAmount(MonetaryAmount amount, String errorMessage) {
