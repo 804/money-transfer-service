@@ -16,14 +16,14 @@ class InMemoryIdGeneratorTest {
     }
 
     @Test
-    @DisplayName("Common generation logic testing")
+    @DisplayName("Common ID generation")
     void testGenerateId() {
         String id = idGenerator.generateId();
         assertNotNull(id, "Generated ID mustn't be null");
     }
 
     @Test
-    @DisplayName("Sequentially generation logic testing")
+    @DisplayName("Sequentially IDs generation")
     void testGenerateSequenceOfUniqueId() {
         String firstId = idGenerator.generateId();
         String secondId = idGenerator.generateId();

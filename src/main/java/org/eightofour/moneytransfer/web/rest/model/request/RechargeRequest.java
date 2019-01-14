@@ -46,7 +46,7 @@ public class RechargeRequest {
     // deserializer class for correct money amount deserialization
     private static class AmountJsonDeserializer extends JsonDeserializer<MonetaryAmount> {
         @Override
-        public MonetaryAmount deserialize(JsonParser parser, DeserializationContext cxt)
+        public MonetaryAmount deserialize(JsonParser parser, DeserializationContext context)
                 throws IOException {
             String amountStr = parser.getValueAsString();
             return Money.of(new BigDecimal(amountStr), "USD");
@@ -56,9 +56,9 @@ public class RechargeRequest {
     // serializer class for correct money amount serialization
     private static class AmountJsonSerializer extends JsonSerializer<MonetaryAmount> {
         @Override
-        public void serialize(MonetaryAmount value, JsonGenerator gen, SerializerProvider serializers)
-                throws IOException {
-            gen.writeNumber(value.toString().split(" ")[1]);
+        public void serialize(MonetaryAmount value, JsonGenerator generator,
+                              SerializerProvider serializers) throws IOException {
+            generator.writeNumber(value.toString().split(" ")[1]);
         }
     }
 }

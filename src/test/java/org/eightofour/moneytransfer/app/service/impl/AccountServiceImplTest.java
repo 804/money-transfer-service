@@ -27,6 +27,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("Account service testing")
 class AccountServiceImplTest {
+    private static final String TEST_ID = "test-id";
+    private static final String TEST_ID_1 = "test-id-1";
+    private static final String TEST_ID_2 = "test-id-2";
+
     private Repository<String, Account> accountRepository;
     private AccountService accountService;
 
@@ -88,7 +92,7 @@ class AccountServiceImplTest {
     @Test
     @DisplayName("Getting not existed account")
     void testAccountNotFound() {
-        Optional<AccountView> optionalAccountView = accountService.getAccount("test-id");
+        Optional<AccountView> optionalAccountView = accountService.getAccount(TEST_ID);
 
         assertFalse(
             optionalAccountView.isPresent(),
@@ -115,7 +119,7 @@ class AccountServiceImplTest {
     @Test
     @DisplayName("Multiple recharge operation performing at the same time")
     @SuppressWarnings("OptionalGetWithoutIsPresent")
-    void testManyRechargeAccountSuccess() throws InterruptedException, ExecutionException {
+    void testManyRechargeAccountSuccess() throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(5);
         CountDownLatch latch = new CountDownLatch(5);
 
@@ -156,9 +160,9 @@ class AccountServiceImplTest {
 
         Optional<AccountView> accountView = accountService.getAccount(account.getId());
         assertEquals(
-            amount.multiply(5),
-            accountView.get().getAmount(),
-            "Account must have correct money amount after multiple recharging operation."
+            amount.multiply(5), accountView.get().getAmount(),
+            "Account must have correct money amount after " +
+                "multiple recharging operation."
         );
     }
 
@@ -168,8 +172,7 @@ class AccountServiceImplTest {
         assertThrows(
             AccountNotFoundException.class,
             () -> accountService.rechargeAccount(
-                "test-id",
-                Money.of(2, "USD")
+                TEST_ID, Money.of(2, "USD")
             ),
             "Service must throw exception for recharging of not existed account."
         );
@@ -206,7 +209,7 @@ class AccountServiceImplTest {
     @Test
     @DisplayName("Multiple transfer operation performing at the same time")
     @SuppressWarnings("OptionalGetWithoutIsPresent")
-    void testManyTransferSuccess() throws AccountNotFoundException, InterruptedException, ExecutionException {
+    void testManyTransferSuccess() throws AccountNotFoundException, InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(6);
         CountDownLatch latch = new CountDownLatch(6);
 
@@ -291,8 +294,7 @@ class AccountServiceImplTest {
         assertThrows(
             AccountNotFoundException.class,
             () -> accountService.transfer(
-                "test-id-1",
-                "test-id-2",
+                TEST_ID_1, TEST_ID_2,
                 Money.of(1, "USD")
             ),
             "Service must throw exception for transfer from not existed account."

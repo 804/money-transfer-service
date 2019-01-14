@@ -26,8 +26,8 @@ class SynchronizedUtilTest {
     private static final List<Pair<String, String>> ARGUMENT_PAIRS =
             ImmutableList.of(
                 Pair.of("a", "b"),
-                Pair.of("c", "a"),
-                Pair.of("b", "c")
+                Pair.of("b", "c"),
+                Pair.of("c", "a")
             );
 
     private CountDownLatch latch;

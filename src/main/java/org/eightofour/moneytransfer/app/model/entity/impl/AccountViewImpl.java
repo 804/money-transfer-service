@@ -70,8 +70,7 @@ public class AccountViewImpl implements AccountView {
         @Override
         public MonetaryAmount deserialize(JsonParser parser, DeserializationContext cxt)
                 throws IOException {
-            String value = parser.getValueAsString();
-            String[] strings = value.split(" ");
+            String[] strings = parser.getValueAsString().split(" ");
             return Money.of(new BigInteger(strings[1]), strings[0]);
         }
     }

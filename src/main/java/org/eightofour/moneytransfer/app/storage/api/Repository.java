@@ -3,7 +3,7 @@ package org.eightofour.moneytransfer.app.storage.api;
 import java.util.Optional;
 
 /**
- * Interface defining common operations for entity storing by key.
+ * Interface, which defines common operations for entity storing by key.
  *
  * @author Evgeny Zubenko
  */

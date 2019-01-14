@@ -30,7 +30,7 @@ public class AccountController {
      *
      * @param id - needed account ID
      *
-     * @return needed account state
+     * @return needed account state view
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -43,7 +43,7 @@ public class AccountController {
     /**
      * Endpoint for account creation operation performing.
      *
-     * @return created account state
+     * @return created account state view
      */
     @POST
     @Produces(MediaType.APPLICATION_JSON)

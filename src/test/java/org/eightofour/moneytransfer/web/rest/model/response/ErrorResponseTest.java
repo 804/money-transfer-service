@@ -11,7 +11,7 @@ class ErrorResponseTest {
     private static final String TEST_MESSAGE = "Test message";
 
     @Test
-    @DisplayName("Construction testing")
+    @DisplayName("Construction")
     void testCreation() {
         ErrorResponse errorResponse = new ErrorResponse(TEST_CODE, TEST_MESSAGE);
 

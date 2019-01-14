@@ -17,7 +17,7 @@ class RechargeRequestTest {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     @Test
-    @DisplayName("Construction testing")
+    @DisplayName("Construction")
     void testCreation() {
         RechargeRequest rechargeRequest = new RechargeRequest(TEST_ID_TO, TEST_AMOUNT);
 
@@ -32,7 +32,7 @@ class RechargeRequestTest {
     }
 
     @Test
-    @DisplayName("Custom deserialization testing")
+    @DisplayName("Custom deserialization")
     void testCustomDeserialization() throws IOException {
         RechargeRequest rechargeRequest = OBJECT_MAPPER.readValue(
             getResourceAsStream(getClass(), "recharge.json"),

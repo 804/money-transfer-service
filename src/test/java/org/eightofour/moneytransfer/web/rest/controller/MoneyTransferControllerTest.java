@@ -17,6 +17,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class MoneyTransferControllerTest extends AbstractControllerTest {
     private static final String RECHARGE_URL_TEMPLATE = "http://localhost:%d/money/recharge";
     private static final String TRANSFER_URL_TEMPLATE = "http://localhost:%d/money/transfer";
+    private static final String TEST_ID_1 = "test-id-1";
+    private static final String TEST_ID_2 = "test-id-2";
 
     @Test
     @DisplayName("Simple recharge operation")
@@ -90,8 +92,11 @@ class MoneyTransferControllerTest extends AbstractControllerTest {
     @Test
     @DisplayName("Simple transfer operation")
     void testTransferSuccess() {
-        AccountViewImpl firstAccountViewBefore = createAccount().readEntity(AccountViewImpl.class);
-        AccountViewImpl secondAccountViewBefore = createAccount().readEntity(AccountViewImpl.class);
+        AccountViewImpl firstAccountViewBefore =
+            createAccount().readEntity(AccountViewImpl.class);
+        AccountViewImpl secondAccountViewBefore =
+            createAccount().readEntity(AccountViewImpl.class);
+
         Money rechargedAmount = Money.of(10, "USD");
         Money transferredAmount = Money.of(5, "USD");
 
@@ -136,8 +141,7 @@ class MoneyTransferControllerTest extends AbstractControllerTest {
     void testTransferIllegalAmount() {
         Response transferResponse = transfer(
             new TransferRequest(
-                "test-id-1",
-                "test-id-2",
+                TEST_ID_1, TEST_ID_2,
                 Money.of(-1, "USD")
             )
         );
@@ -158,8 +162,7 @@ class MoneyTransferControllerTest extends AbstractControllerTest {
     void testTransferAccountNotFound() {
         Response transferResponse = transfer(
             new TransferRequest(
-                "test-id-1",
-                "test-id-2",
+                TEST_ID_1, TEST_ID_2,
                 Money.of(1, "USD")
             )
         );
@@ -178,7 +181,6 @@ class MoneyTransferControllerTest extends AbstractControllerTest {
     @Test
     @DisplayName("Transfer from account which hasn't enough money")
     void testTransferNotEnoughMoney() {
-
         AccountViewImpl firstAccountViewBefore = createAccount().readEntity(AccountViewImpl.class);
         AccountViewImpl secondAccountViewBefore = createAccount().readEntity(AccountViewImpl.class);
 

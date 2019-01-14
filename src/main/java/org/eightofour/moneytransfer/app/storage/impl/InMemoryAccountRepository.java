@@ -22,7 +22,7 @@ public class InMemoryAccountRepository implements Repository<String, Account> {
     public void add(String key, Account account) {
         storage.put(account.getId(), account);
         log.trace(
-            "New account has been added to repository: id '{}'",
+            "New account has been added to repository: id - '{}'",
             account.getId()
         );
     }
@@ -32,7 +32,7 @@ public class InMemoryAccountRepository implements Repository<String, Account> {
         Account account = storage.get(key);
         if (account != null) {
             log.trace(
-                "Account has been retrieved from repository: id '{}'", key
+                "Account has been retrieved from repository: id - '{}'", key
             );
         }
         return Optional.ofNullable(account);

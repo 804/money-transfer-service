@@ -18,7 +18,7 @@ class NoSuchMoneyExceptionMapperTest {
     private static final String TEST_MESSAGE = "Test message";
 
     @Test
-    @DisplayName("Common mapping logic testing")
+    @DisplayName("Common mapping logic")
     void testToResponse() {
         NoSuchMoneyException exception = new NoSuchMoneyException(TEST_MESSAGE);
         Response response = EXCEPTION_MAPPER.toResponse(exception);

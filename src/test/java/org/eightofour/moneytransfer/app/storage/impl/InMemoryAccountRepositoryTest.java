@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @DisplayName("In-memory account repository testing")
 class InMemoryAccountRepositoryTest {
     private static final String TEST_ID = "test-id";
+
     private InMemoryAccountRepository repository;
 
     @BeforeEach
@@ -22,7 +23,7 @@ class InMemoryAccountRepositoryTest {
     }
 
     @Test
-    @DisplayName("Common 'add-get' case testing")
+    @DisplayName("Common 'add-get' case")
     void testStore() {
         Account account = new AccountImpl(TEST_ID, Money.of(0, "USD"));
 
@@ -40,7 +41,7 @@ class InMemoryAccountRepositoryTest {
     }
 
     @Test
-    @DisplayName("'Account-not-found' case testing")
+    @DisplayName("'Account-not-found' case")
     void testNotFound() {
         Optional<Account> optionalAccount = repository.get(TEST_ID);
         assertFalse(

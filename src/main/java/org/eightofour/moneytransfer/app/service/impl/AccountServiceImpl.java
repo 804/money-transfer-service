@@ -17,7 +17,7 @@ import java.util.Optional;
 import static org.eightofour.moneytransfer.app.util.SynchronizedUtil.*;
 
 /**
- * Implementation of service with working with deposit account and
+ * Implementation of service for working with deposit account and
  * operation performing with them.
  *
  * @author Evgeny Zubenko
@@ -71,7 +71,7 @@ public class AccountServiceImpl implements AccountService {
                 }
             );
             log.info(
-                "Recharging operation has been performed successfully: account '{}', amount '{}'",
+                "Recharging operation has been performed successfully: account - '{}', amount - '{}'",
                 account.getId(), amount
             );
         } catch (Exception exc) {

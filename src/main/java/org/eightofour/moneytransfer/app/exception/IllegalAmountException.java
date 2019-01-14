@@ -2,7 +2,7 @@ package org.eightofour.moneytransfer.app.exception;
 
 /**
  * Business exception, which is thrown in case if money amount
- * has illegal for current case state.
+ * has illegal state for current case.
  *
  * @author Evgeny Zubenko
  */

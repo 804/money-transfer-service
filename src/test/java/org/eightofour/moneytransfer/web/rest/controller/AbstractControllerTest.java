@@ -16,14 +16,11 @@ import static io.dropwizard.testing.ResourceHelpers.resourceFilePath;
 
 public abstract class AbstractControllerTest {
     private static final String ACCOUNT_URL_TEMPLATE = "http://localhost:%d/account";
-
     private static final DropwizardTestSupport<TransferConfiguration> TEST_SERVER =
             new DropwizardTestSupport<>(
                 TransferWebApplication.class,
                 resourceFilePath("test_setting.yaml")
             );
-
-    protected Client client = new JerseyClientBuilder().build();
 
     @BeforeAll
     public static void beforeClass() {
@@ -34,6 +31,8 @@ public abstract class AbstractControllerTest {
     public static void afterClass() {
         TEST_SERVER.after();
     }
+
+    protected Client client = new JerseyClientBuilder().build();
 
     protected Response createAccount() {
         return client.target(resolveURL(ACCOUNT_URL_TEMPLATE))

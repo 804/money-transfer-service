@@ -7,8 +7,8 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 
 /**
- * Util class performing functional actions
- * with synchronization by arguments.
+ * Util class for functional actions execution
+ * with synchronization by their arguments.
  *
  * @author Evgeny Zubenko
  */
@@ -18,7 +18,7 @@ public class SynchronizedUtil {
     }
 
     /**
-     * Apply function with synchronization by its argument.
+     * Applies function with synchronization by its argument.
      *
      * @param argument - function argument
      * @param function - applying function
@@ -37,7 +37,7 @@ public class SynchronizedUtil {
     }
 
     /**
-     * Consume argument with specified logic with synchronization by argument.
+     * Consumes argument with specified logic with synchronization by argument.
      *
      * @param argument - consumed argument
      * @param consumer - consuming logic

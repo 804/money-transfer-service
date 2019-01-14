@@ -18,7 +18,7 @@ class AccountNotFoundExceptionMapperTest {
     private static final int STATUS_CODE = 404;
 
     @Test
-    @DisplayName("Common mapping logic testing")
+    @DisplayName("Common mapping logic")
     void testToResponse() {
         AccountNotFoundException exception = new AccountNotFoundException(TEST_ID);
         Response response = EXCEPTION_MAPPER.toResponse(exception);

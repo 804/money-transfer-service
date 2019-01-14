@@ -18,7 +18,7 @@ class TransferRequestTest {
     private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
 
     @Test
-    @DisplayName("Construction testing")
+    @DisplayName("Construction")
     void testCreation() {
         TransferRequest transferRequest = new TransferRequest(TEST_ID_FROM, TEST_ID_TO, TEST_AMOUNT);
 
@@ -37,7 +37,7 @@ class TransferRequestTest {
     }
 
     @Test
-    @DisplayName("Custom deserialization testing")
+    @DisplayName("Custom deserialization")
     void testCustomDeserialization() throws IOException {
         TransferRequest transferRequest = OBJECT_MAPPER.readValue(
             getResourceAsStream(getClass(), "transfer.json"),

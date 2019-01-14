@@ -18,7 +18,7 @@ class IllegalAmountExceptionMapperTest {
     private static final String TEST_MESSAGE = "Test message";
 
     @Test
-    @DisplayName("Common mapping logic testing")
+    @DisplayName("Common mapping logic")
     void testToResponse() {
         IllegalAmountException exception = new IllegalAmountException(TEST_MESSAGE);
         Response response = EXCEPTION_MAPPER.toResponse(exception);

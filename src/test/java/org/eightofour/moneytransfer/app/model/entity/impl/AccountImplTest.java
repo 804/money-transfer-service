@@ -18,7 +18,7 @@ class AccountImplTest {
 
 
     @Test
-    @DisplayName("Simple creation and getters testing")
+    @DisplayName("Simple creation and properties' getting")
     void accountCreationTest() {
         String expectedId = TEST_ID;
         MonetaryAmount expectedAmount = DEFAULT_AMOUNT;
@@ -36,7 +36,7 @@ class AccountImplTest {
     }
 
     @Test
-    @DisplayName("Creation with null ID testing")
+    @DisplayName("Creation with null ID")
     void accountCreationIncorrectIdTest() {
         assertThrows(
             NullPointerException.class,
@@ -46,7 +46,7 @@ class AccountImplTest {
     }
 
     @Test
-    @DisplayName("Creation with null amount testing")
+    @DisplayName("Creation with null amount")
     void accountCreationIncorrectAmountTest() {
         Account account = new AccountImpl(TEST_ID, null);
 
@@ -57,7 +57,7 @@ class AccountImplTest {
     }
 
     @Test
-    @DisplayName("Amount setter with correct value testing")
+    @DisplayName("Amount setting with correct value")
     void setAmountTest() {
         MonetaryAmount unexpectedAmount = Money.of(1, "USD");
         Account account = new AccountImpl(TEST_ID, unexpectedAmount);
@@ -76,7 +76,7 @@ class AccountImplTest {
     }
 
     @Test
-    @DisplayName("Amount setter with incorrect value testing")
+    @DisplayName("Amount setter with incorrect value")
     void setIncorrectAmountTest() {
         Account account = new AccountImpl(TEST_ID, DEFAULT_AMOUNT);
 
