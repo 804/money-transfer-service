@@ -67,4 +67,4 @@ As 'properties' you can specify following properties:
   	"amount": 10
   }
   ```
-  where 'accountFrom', 'accountTo' - accounts ID, 'amount' - recharged money amount
+  where 'accountFrom', 'accountTo' - accounts ID, 'amount' - recharged money amount.
